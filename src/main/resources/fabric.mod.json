@@ -22,6 +22,9 @@
 		],
 		"preLaunch": [
 			"com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+		],
+		"fabric-datagen": [
+			"top.offsetmonkey538.croissantmod.datagen.CroissantModDatagen"
 		]
 	},
 	"mixins": [
