@@ -4,7 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import top.offsetmonkey538.croissantmod.item.ModItems;
+import top.offsetmonkey538.croissantmod.init.ModItems;
 
 public class CroissantMod implements ModInitializer {
 	public static final String MOD_ID = "croissant-mod";

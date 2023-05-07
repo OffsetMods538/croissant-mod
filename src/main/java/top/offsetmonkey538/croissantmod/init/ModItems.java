@@ -1,4 +1,4 @@
-package top.offsetmonkey538.croissantmod.item;
+package top.offsetmonkey538.croissantmod.init;
 
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
