@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "croissant-mod",
+	"version": "${modVersion}",
+	"name": "Croissant Mod",
+	"description": "Adds croissants",
+	"authors": [
+		"OffsetMonkey538"
+	],
+	"contact": {
+		"sources": "https://github.offsetmonkey538.top/croissant-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/croissant-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"top.offsetmonkey538.croissantmod.CroissantMod"
+		],
+		"client": [
+			"top.offsetmonkey538.croissantmod.CroissantModClient"
+		],
+		"preLaunch": [
+			"com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+		]
+	},
+	"mixins": [
+		"croissant-mod.mixins.json",
+		{
+			"config": "croissant-mod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"accessWidener": "croissant-mod.accesswidener",
+	"depends": {
+		"minecraft": "${supportedMinecraftVersions}"
+	}
+}
