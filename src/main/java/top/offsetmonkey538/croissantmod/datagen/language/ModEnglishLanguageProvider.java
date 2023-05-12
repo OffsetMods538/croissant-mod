@@ -4,8 +4,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import top.offsetmonkey538.croissantmod.init.ModItems;
 
-public class EnglishLanguageProvider extends FabricLanguageProvider {
-    public EnglishLanguageProvider(FabricDataOutput dataOutput) {
+public class ModEnglishLanguageProvider extends FabricLanguageProvider {
+    public ModEnglishLanguageProvider(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
 

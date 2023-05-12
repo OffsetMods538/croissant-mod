@@ -7,14 +7,14 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import top.offsetmonkey538.croissantmod.init.ModItems;
 
-public class ModelGenerator extends FabricModelProvider {
-    public ModelGenerator(FabricDataOutput output) {
+public class ModModelGenerator extends FabricModelProvider {
+    public ModModelGenerator(FabricDataOutput output) {
         super(output);
     }
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-
+        // Empty as we don't add blocks
     }
 
     @Override

@@ -19,6 +19,7 @@ import top.offsetmonkey538.croissantmod.item.AbstractCroissantItem;
 
 public class ThrownCroissantEntity extends PersistentProjectileEntity implements FlyingItemEntity {
     private static final TrackedData<ItemStack> ITEM = DataTracker.registerData(ThrownCroissantEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
+    private static final String ITEM_NBT_KEY = "CroissantItem";
     private boolean isReturning = false;
 
     public ThrownCroissantEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
@@ -39,7 +40,7 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
 
-        nbt.put("CroissantItem", this.getStack().writeNbt(new NbtCompound()));
+        nbt.put(ITEM_NBT_KEY, this.getStack().writeNbt(new NbtCompound()));
         nbt.putBoolean("IsReturning", this.isReturning);
     }
 
@@ -47,7 +48,7 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
 
-        if (nbt.contains("CroissantItem", NbtElement.COMPOUND_TYPE)) this.setStack(ItemStack.fromNbt(nbt.getCompound("CroissantItem")));
+        if (nbt.contains(ITEM_NBT_KEY, NbtElement.COMPOUND_TYPE)) this.setStack(ItemStack.fromNbt(nbt.getCompound(ITEM_NBT_KEY)));
         this.isReturning = nbt.getBoolean("IsReturning");
     }
 
@@ -101,7 +102,7 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
 
     @Override
     public boolean shouldRender(double distance) {
-        return distance < 512 * ThrownCroissantEntity.getRenderDistanceMultiplier();
+        return distance < 512 * Entity.getRenderDistanceMultiplier();
     }
 
     @Override

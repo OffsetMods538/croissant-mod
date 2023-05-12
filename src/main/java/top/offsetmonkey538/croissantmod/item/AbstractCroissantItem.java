@@ -21,7 +21,7 @@ import java.util.List;
 public abstract class AbstractCroissantItem extends Item {
     protected List<Pair<StatusEffectInstance, Float>> statusEffects = new ArrayList<>();
 
-    public AbstractCroissantItem(Settings settings) {
+    protected AbstractCroissantItem(Settings settings) {
         super(settings);
     }
 
@@ -69,7 +69,7 @@ public abstract class AbstractCroissantItem extends Item {
 
 
         for (Pair<StatusEffectInstance, Float> pair : this.statusEffects) {
-            if (world.isClient() || pair.getFirst() == null || !(world.random.nextFloat() < pair.getSecond())) continue;
+            if (world.isClient() || pair.getFirst() == null || world.random.nextFloat() >= pair.getSecond()) continue;
             final StatusEffectInstance instance = new StatusEffectInstance(pair.getFirst());
 
             if (user == null) livingEntity.addStatusEffect(instance);

@@ -1,6 +1,5 @@
 package top.offsetmonkey538.croissantmod.init;
 
-import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
