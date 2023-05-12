@@ -22,8 +22,4 @@ public final class ModItems {
     public static void register() {
         // Registers items by loading the class
     }
-
-    public static final class FoodComponents {
-        public static final FoodComponent CROISSANT = new FoodComponent.Builder().hunger(8).saturationModifier(1.1f).build();
-    }
 }

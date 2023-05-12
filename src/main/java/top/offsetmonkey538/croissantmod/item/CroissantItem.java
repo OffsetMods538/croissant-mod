@@ -2,11 +2,13 @@ package top.offsetmonkey538.croissantmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import top.offsetmonkey538.croissantmod.init.ModItems;
+import net.minecraft.item.FoodComponent;
 
 public class CroissantItem extends Item {
 
     public CroissantItem() {
-        super(new FabricItemSettings().food(ModItems.FoodComponents.CROISSANT));
+        super(new FabricItemSettings().food(
+                new FoodComponent.Builder().hunger(8).saturationModifier(1.1f).build()
+        ));
     }
 }
