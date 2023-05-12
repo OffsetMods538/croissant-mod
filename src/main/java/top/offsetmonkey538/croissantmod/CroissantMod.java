@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import top.offsetmonkey538.croissantmod.init.ModEntities;
 import top.offsetmonkey538.croissantmod.init.ModItems;
 
 public class CroissantMod implements ModInitializer {
@@ -13,6 +14,7 @@ public class CroissantMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.register();
+		ModEntities.register();
 	}
 
 	public static Identifier id(String path) {
