@@ -25,5 +25,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("ww ")
                 .pattern("w  ")
                 .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ICE_CROISSANT)
+                .input('i', Items.ICE)
+                .input('c', ModItems.CROISSANT)
+                .criterion("has_croissant", RecipeProvider.conditionsFromItem(ModItems.CROISSANT))
+                .pattern("iii")
+                .pattern("ici")
+                .pattern("iii")
+                .offerTo(exporter);
     }
 }

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import top.offsetmonkey538.croissantmod.init.ModEntities;
 import top.offsetmonkey538.croissantmod.init.ModItems;
+import top.offsetmonkey538.croissantmod.init.ModStatusEffects;
 
 public class CroissantMod implements ModInitializer {
 	public static final String MOD_ID = "croissant-mod";
@@ -13,6 +14,7 @@ public class CroissantMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModStatusEffects.register();
 		ModItems.register();
 		ModEntities.register();
 	}
