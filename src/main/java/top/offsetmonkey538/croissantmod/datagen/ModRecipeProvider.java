@@ -34,5 +34,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("ici")
                 .pattern("iii")
                 .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.INFERNAL_CROISSANT)
+                .input('i', Items.BLUE_ICE)
+                .input('c', ModItems.CROISSANT)
+                .input('l', Items.LAVA_BUCKET)
+                .criterion("has_croissant", RecipeProvider.conditionsFromItem(ModItems.CROISSANT))
+                .pattern("lll")
+                .pattern("ici")
+                .pattern("iii")
+                .offerTo(exporter);
     }
 }

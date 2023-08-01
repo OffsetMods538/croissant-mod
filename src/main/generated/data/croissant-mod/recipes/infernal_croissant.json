@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "croissant-mod:croissant"
+    },
+    "i": {
+      "item": "minecraft:blue_ice"
+    },
+    "l": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "pattern": [
+    "lll",
+    "ici",
+    "iii"
+  ],
+  "result": {
+    "item": "croissant-mod:infernal_croissant"
+  },
+  "show_notification": true
+}
