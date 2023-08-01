@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "croissant-mod:block/melting_obsidian_1"
+  }
+}
