@@ -3,7 +3,7 @@
 	"package": "top.offsetmonkey538.croissantmod.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-
+		"block.MagmaBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

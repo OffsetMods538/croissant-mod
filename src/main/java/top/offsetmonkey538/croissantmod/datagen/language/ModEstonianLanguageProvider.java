@@ -16,5 +16,6 @@ public class ModEstonianLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.ICE_CROISSANT, "Jääst Sarvesai");
 
         translationBuilder.add(ModStatusEffects.FROST_WALKER, "Härmatiskõndija");
+        translationBuilder.add(ModStatusEffects.MAGMA_WALKER, "Magmakõndija");
     }
 }

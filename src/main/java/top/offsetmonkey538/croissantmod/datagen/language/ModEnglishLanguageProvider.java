@@ -16,5 +16,6 @@ public class ModEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.ICE_CROISSANT, "Ice Croissant");
 
         translationBuilder.add(ModStatusEffects.FROST_WALKER, "Frost Walker");
+        translationBuilder.add(ModStatusEffects.MAGMA_WALKER, "Magma Walker");
     }
 }

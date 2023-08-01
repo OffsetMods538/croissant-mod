@@ -15,6 +15,7 @@ public final class ModStatusEffects {
     }
 
     public static final WalkerStatusEffect FROST_WALKER = register(new WalkerStatusEffect(StatusEffectCategory.BENEFICIAL, 8303100, Blocks.WATER, Blocks.FROSTED_ICE), "frost_walker");
+    public static final WalkerStatusEffect MAGMA_WALKER = register(new WalkerStatusEffect(StatusEffectCategory.BENEFICIAL, 13783309, Blocks.LAVA, ModBlocks.MELTING_OBSIDIAN), "magma_walker");
 
     private static <T extends StatusEffect> T register(T statusEffect, String name) {
         return Registry.register(Registries.STATUS_EFFECT, id(name), statusEffect);
