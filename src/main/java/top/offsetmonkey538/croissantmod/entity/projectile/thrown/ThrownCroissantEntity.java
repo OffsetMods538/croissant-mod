@@ -62,7 +62,12 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
 
 
         if (!isReturning && !this.inGround && age >= item.getProjectileDurationTicks()) this.isReturning = true;
-        if (!isReturning || world.isClient || owner == null || !owner.isAlive()) {
+        if (owner == null || !owner.isAlive()) {
+            if (this.pickupType == PickupPermission.ALLOWED) this.dropStack(this.getStack());
+            this.discard();
+            return;
+        }
+        if (!isReturning || world.isClient) {
             super.tick();
             return;
         }
