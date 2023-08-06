@@ -14,7 +14,7 @@ public final class ModBlocks {
 
     }
 
-    public static final MeltingObsidianBlock MELTING_OBSIDIAN = register(new MeltingObsidianBlock(FabricBlockSettings.copyOf(Blocks.OBSIDIAN).ticksRandomly()), "melting_obsidian");
+    public static final MeltingObsidianBlock MELTING_OBSIDIAN = register(new MeltingObsidianBlock(FabricBlockSettings.copyOf(Blocks.OBSIDIAN).ticksRandomly().luminance(blockState -> blockState.get(MeltingObsidianBlock.AGE) * 4)), "melting_obsidian");
 
     private static <T extends Block> T register(T block, String name) {
         return Registry.register(Registries.BLOCK, id(name), block);

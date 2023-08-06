@@ -43,7 +43,7 @@ public class MeltingObsidianBlock extends Block implements IMeltingBlock {
     @SuppressWarnings("deprecation")
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        if (sourceBlock == this && this.canMelt(this, world, pos, 2)) this.melt(state, world, pos);
+        if (sourceBlock.getDefaultState().isOf(this) && this.canMelt(this, world, pos, 2)) this.melt(state, world, pos);
         super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
     }
 
