@@ -28,6 +28,7 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
 
     public ThrownCroissantEntity(EntityType<? extends PersistentProjectileEntity> type, World world, LivingEntity owner) {
         super(type, owner, world);
+        this.setOwner(owner);
     }
 
     @Override
