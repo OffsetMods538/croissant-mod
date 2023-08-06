@@ -19,8 +19,13 @@ import top.offsetmonkey538.croissantmod.item.AbstractCroissantItem;
 
 public class ThrownCroissantEntity extends PersistentProjectileEntity implements FlyingItemEntity {
     private static final TrackedData<ItemStack> ITEM = DataTracker.registerData(ThrownCroissantEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
+
     private static final String ITEM_NBT_KEY = "CroissantItem";
+    private static final String IS_RETURNING_NBT_KEY = "IsReturning";
+    private static final String ENTITIES_HIT_NBT_KEY = "EntitiesHit";
+
     private boolean isReturning = false;
+    private int entitiesHit = 0;
 
     public ThrownCroissantEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
@@ -42,7 +47,8 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
         super.writeCustomDataToNbt(nbt);
 
         nbt.put(ITEM_NBT_KEY, this.getStack().writeNbt(new NbtCompound()));
-        nbt.putBoolean("IsReturning", this.isReturning);
+        nbt.putBoolean(IS_RETURNING_NBT_KEY, this.isReturning);
+        nbt.putInt(ENTITIES_HIT_NBT_KEY, this.entitiesHit);
     }
 
     @Override
@@ -50,7 +56,8 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
         super.readCustomDataFromNbt(nbt);
 
         if (nbt.contains(ITEM_NBT_KEY, NbtElement.COMPOUND_TYPE)) this.setStack(ItemStack.fromNbt(nbt.getCompound(ITEM_NBT_KEY)));
-        this.isReturning = nbt.getBoolean("IsReturning");
+        if (nbt.contains(IS_RETURNING_NBT_KEY, NbtElement.BYTE_TYPE)) this.isReturning = nbt.getBoolean(IS_RETURNING_NBT_KEY);
+        if (nbt.contains(ENTITIES_HIT_NBT_KEY, NbtElement.INT_TYPE)) this.entitiesHit = nbt.getInt(ENTITIES_HIT_NBT_KEY);
     }
 
     @Override
@@ -89,11 +96,10 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
         final AbstractCroissantItem item = (AbstractCroissantItem) (this.getStack().getItem());
 
         if (this.isOwner(entity)) return;
+        if (entitiesHit++ >= item.getProjectileMaxEntitiesHit()) isReturning = true;
         entity.damage(this.getDamageSources().thrown(this, this.getOwner()), item.getProjectileDamage());
 
         item.onProjectileHitEntity(entityHitResult, this.getOwner());
-
-        isReturning = true;
     }
 
     @Override

@@ -40,6 +40,11 @@ public class InfernalCroissantItem extends AbstractCroissantItem {
     }
 
     @Override
+    public int getProjectileMaxEntitiesHit() {
+        return 3;
+    }
+
+    @Override
     public int getItemCooldownDurationTicks() {
         return 15;
     }

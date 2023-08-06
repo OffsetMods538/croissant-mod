@@ -58,6 +58,7 @@ public abstract class AbstractCroissantItem extends Item {
     public abstract float getProjectileDamage();
 
     public abstract int getProjectileDurationTicks();
+    public abstract int getProjectileMaxEntitiesHit();
 
     public abstract int getItemCooldownDurationTicks();
 

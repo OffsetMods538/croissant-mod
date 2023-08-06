@@ -27,6 +27,11 @@ public class CroissantItem extends AbstractCroissantItem {
     }
 
     @Override
+    public int getProjectileMaxEntitiesHit() {
+        return 2;
+    }
+
+    @Override
     public int getItemCooldownDurationTicks() {
         return 15;
     }
