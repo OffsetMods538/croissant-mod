@@ -99,7 +99,7 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
         if (entitiesHit++ >= item.getProjectileMaxEntitiesHit()) isReturning = true;
         entity.damage(this.getDamageSources().thrown(this, this.getOwner()), item.getProjectileDamage());
 
-        item.onProjectileHitEntity(entityHitResult, this.getOwner());
+        item.onProjectileHitEntity(entityHitResult, this.getOwner(), this);
     }
 
     @Override

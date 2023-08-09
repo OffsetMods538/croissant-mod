@@ -49,8 +49,18 @@ public abstract class AbstractCroissantItem extends Item {
         return TypedActionResult.success(itemStack);
     }
 
+    @Override
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        if (this.isFood()) afterEat(world, user);
+        return super.finishUsing(stack, world, user);
+    }
+
     protected void addStatusEffect(StatusEffectInstance effect, float chance) {
         statusEffects.add(Pair.of(effect, chance));
+    }
+
+    public void afterEat(World world, LivingEntity user) {
+
     }
 
     public abstract double getProjectileSpeed();
@@ -62,7 +72,7 @@ public abstract class AbstractCroissantItem extends Item {
 
     public abstract int getItemCooldownDurationTicks();
 
-    public void onProjectileHitEntity(EntityHitResult entityHitResult, Entity user) {
+    public void onProjectileHitEntity(EntityHitResult entityHitResult, Entity user, ThrownCroissantEntity croissantEntity) {
         final Entity entity = entityHitResult.getEntity();
         final World world = entity.getWorld();
 

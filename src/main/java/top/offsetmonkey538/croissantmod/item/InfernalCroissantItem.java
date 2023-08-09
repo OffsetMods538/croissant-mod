@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.util.hit.EntityHitResult;
+import top.offsetmonkey538.croissantmod.entity.projectile.thrown.ThrownCroissantEntity;
 import top.offsetmonkey538.croissantmod.init.ModStatusEffects;
 
 public class InfernalCroissantItem extends AbstractCroissantItem {
@@ -18,8 +19,8 @@ public class InfernalCroissantItem extends AbstractCroissantItem {
     }
 
     @Override
-    public void onProjectileHitEntity(EntityHitResult entityHitResult, Entity user) {
-        super.onProjectileHitEntity(entityHitResult, user);
+    public void onProjectileHitEntity(EntityHitResult entityHitResult, Entity user, ThrownCroissantEntity croissantEntity) {
+        super.onProjectileHitEntity(entityHitResult, user, croissantEntity);
 
         entityHitResult.getEntity().setFireTicks(600);
     }
