@@ -1,22 +1,13 @@
 package top.offsetmonkey538.croissantmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.block.TntBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.TntEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.FoodComponent;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.ExplosionBehavior;
 import top.offsetmonkey538.croissantmod.entity.projectile.thrown.ThrownCroissantEntity;
-import top.offsetmonkey538.croissantmod.init.ModStatusEffects;
 
 public class TntCroissantItem extends AbstractCroissantItem {
 
