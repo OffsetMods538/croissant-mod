@@ -1,5 +1,6 @@
 plugins {
 	id 'fabric-loom' version '1.1-SNAPSHOT'
+	id 'io.github.dexman545.outlet' version '1.5.1'
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -7,17 +8,9 @@ targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = "croissant-mod"
 version = "${project.mod_version}+${project.minecraft_version}"
+outlet.mcVersionRange = project.supported_minecraft_versions
 
 
-repositories {
-	maven {
-		name = "JitPack"
-		url  = "https://jitpack.io"
-		content {
-			includeGroup "com.github.llamalad7.mixinextras"
-		}
-	}
-}
 
 loom {
 	splitEnvironmentSourceSets()
@@ -67,13 +60,23 @@ configurations {
 	implementation.extendsFrom includeImplementation
 }
 
+repositories {
+	maven {
+		name = "JitPack"
+		url  = "https://jitpack.io"
+		content {
+			includeGroup "com.github.llamalad7.mixinextras"
+		}
+	}
+}
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	mappings "net.fabricmc:yarn:${outlet.yarnVersion(project.minecraft_version)}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${outlet.loaderVersion()}"
 
 	// Fabric API
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${outlet.fapiVersion(project.minecraft_version)}"
 
 	// Uncomment for including a module of fabric api
 	// includeModImplementation fabricApi.module("fabric-api-base", project.fabric_api_version)
