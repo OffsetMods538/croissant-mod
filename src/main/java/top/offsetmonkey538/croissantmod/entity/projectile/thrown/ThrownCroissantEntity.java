@@ -95,11 +95,13 @@ public class ThrownCroissantEntity extends PersistentProjectileEntity implements
         final Entity entity = entityHitResult.getEntity();
         final AbstractCroissantItem item = (AbstractCroissantItem) (this.getStack().getItem());
 
+        boolean isEnderman = entity.getType() == EntityType.ENDERMAN;
+
         if (this.isOwner(entity)) return;
-        if (entitiesHit++ >= item.getProjectileMaxEntitiesHit()) isReturning = true;
+        if (!isEnderman && entitiesHit++ >= item.getProjectileMaxEntitiesHit()) isReturning = true;
         entity.damage(this.getDamageSources().thrown(this, this.getOwner()), item.getProjectileDamage());
 
-        if (entity.getType() == EntityType.ENDERMAN) return;
+        if (isEnderman) return;
         item.onProjectileHitEntity(entityHitResult, this.getOwner(), this);
     }
 
