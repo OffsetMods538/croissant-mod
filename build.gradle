@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '1.3-SNAPSHOT'
 	id 'io.github.dexman545.outlet' version '1.5.1'
+	id 'com.modrinth.minotaur' version '2.+'
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -110,5 +111,24 @@ java {
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.archivesBaseName}" }
+	}
+}
+
+modrinth {
+	token = System.getenv("MODRINTH_TOKEN")
+	projectId = "croissant-mod"
+	def customVersionName = System.getenv("VERSION_NAME")
+	if (customVersionName != null) versionName = customVersionName
+	versionNumber = "${version}"
+	versionType = "beta"
+	uploadFile = remapJar
+	additionalFiles = [sourcesJar]
+	gameVersions = outlet.mcVersions()
+	syncBodyFrom = rootProject.file("README.md").text
+	def changelogFile = rootProject.file("CHANGELOG.md")
+	if (changelogFile.exists()) changelog = changelogFile.text
+
+	dependencies {
+		required.project "fabric-api"
 	}
 }
