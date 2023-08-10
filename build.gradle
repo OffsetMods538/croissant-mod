@@ -82,8 +82,7 @@ dependencies {
 	// includeModImplementation fabricApi.module("fabric-api-base", project.fabric_api_version)
 
 	// Mixin Extras
-	includeImplementation "com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixin_extras_version}"
-	annotationProcessor   "com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixin_extras_version}"
+	includeImplementation annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixin_extras_version}")
 }
 
 processResources {
