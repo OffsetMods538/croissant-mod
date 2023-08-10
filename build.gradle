@@ -98,6 +98,8 @@ processResources {
 			"supportedMinecraftVersions", project.supported_minecraft_versions
 		))
 	}
+
+	exclude ".cache/**"
 }
 
 tasks.withType(JavaCompile).configureEach {
