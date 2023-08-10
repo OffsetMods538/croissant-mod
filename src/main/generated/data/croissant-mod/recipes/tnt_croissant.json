@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "croissant-mod:croissant"
+    },
+    "g": {
+      "item": "minecraft:gunpowder"
+    },
+    "t": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "pattern": [
+    "gtg",
+    "tct",
+    "gtg"
+  ],
+  "result": {
+    "item": "croissant-mod:tnt_croissant"
+  },
+  "show_notification": true
+}
