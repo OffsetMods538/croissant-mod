@@ -36,6 +36,7 @@
 	],
 	"accessWidener": "croissant-mod.accesswidener",
 	"depends": {
+		"fabric-api": "*",
 		"minecraft": "${supportedMinecraftVersions}"
 	}
 }
