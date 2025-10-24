@@ -21,33 +21,24 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Make gradle wrapper executable
-        if: ${{ runner.os != 'Windows' }}
-        run: chmod +x ./gradlew
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-read-only: false
 
       - name: Generate resources with Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: runDatagenClient
+        run: ./gradlew runDatagenClient
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: build
+        run: ./gradlew build
 
       - name: Upload to Modrinth
-        uses: gradle/gradle-build-action@v2
+        run: ./gradlew modrinth
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           VERSION_NAME: ${{ github.event.release.name }}
-        with:
-          arguments: modrinth
 
       - name: Upload to GitHub
-        uses: svenstaro/upload-release-action@v2
+        uses: softprops/action-gh-release@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/libs/*.jar
-          tag: ${{ github.ref }}
-          overwrite: true
-          file_glob: true
+          files: build/libs/*.jar
